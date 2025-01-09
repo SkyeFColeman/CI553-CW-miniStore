@@ -54,9 +54,11 @@ class Main
   public void startCustomerGUI_MVC(MiddleFactory mlf )
   {
     JFrame  window = new JFrame();
+    
     window.setTitle( "Customer Client MVC");
     window.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
     Dimension pos = PosOnScrn.getPos();
+    
     
     CustomerModel model      = new CustomerModel(mlf);
     CustomerView view        = new CustomerView( window, mlf, pos.width, pos.height );

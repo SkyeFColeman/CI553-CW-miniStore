@@ -45,4 +45,10 @@ public class CashierController
   {
     model.doBought();
   }
+
+public Object doDiscount(boolean b) {
+	model.doDiscount();
+	
+	return null;
+}
 }

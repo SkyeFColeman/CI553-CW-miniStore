@@ -24,7 +24,7 @@ public class CustomerView implements Observer
   }
 
   private static final int H = 300;       // Height of window pixels
-  private static final int W = 400;       // Width  of window pixels
+  private static final int W = 500;       // Width  of window pixels
 
   private final JLabel      pageTitle  = new JLabel();
   private final JLabel      theAction  = new JLabel();
@@ -57,6 +57,8 @@ public class CustomerView implements Observer
     }
     Container cp         = rpc.getContentPane();    // Content Pane
     Container rootWindow = (Container) rpc;         // Root Window
+    cp.setBackground(new java.awt.Color(64, 64, 64)); //change background colour
+
     cp.setLayout(null);                             // No layout manager
     rootWindow.setSize( W, H );                     // Size of Window
     rootWindow.setLocation( x, y );
@@ -64,22 +66,29 @@ public class CustomerView implements Observer
     Font f = new Font("Monospaced",Font.PLAIN,12);  // Font f is
     
     pageTitle.setBounds( 110, 0 , 270, 20 );       
-    pageTitle.setText( "Search products" );                        
+    pageTitle.setText( "<html> <font color='white'>Search products</font></html>" );     //change text colour to white                     
     cp.add( pageTitle );
 
     theBtCheck.setBounds( 16, 25+60*0, 80, 40 );    // Check button
     theBtCheck.addActionListener(                   // Call back code
       e -> cont.doCheck( theInput.getText() ) );
     cp.add( theBtCheck );                           //  Add to canvas
+    theBtCheck.setBackground(new java.awt.Color(96, 96, 96));
+    theBtCheck.setBorder(BorderFactory.createLineBorder(Color.black));
+    theBtCheck.setForeground(Color.black);
 
     theBtClear.setBounds( 16, 25+60*1, 80, 40 );    // Clear button
     theBtClear.addActionListener(                   // Call back code
       e -> cont.doClear() );
     cp.add( theBtClear );                           //  Add to canvas
+    theBtClear.setBackground(new java.awt.Color(96, 96, 96));
+    theBtClear.setBorder(BorderFactory.createLineBorder(Color.black));
+    theBtClear.setForeground(Color.black);
 
     theAction.setBounds( 110, 25 , 270, 20 );       // Message area
     theAction.setText( " " );                       // blank
     cp.add( theAction );                            //  Add to canvas
+    theAction.setForeground(Color.white);
 
     theInput.setBounds( 110, 50, 270, 40 );         // Product no area
     theInput.setText("");                           // Blank

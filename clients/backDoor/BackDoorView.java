@@ -19,7 +19,8 @@ public class BackDoorView implements Observer
   private static final String QUERY    = "Query";
  
   private static final int H = 300;       // Height of window pixels
-  private static final int W = 400;       // Width  of window pixels
+  private static final int W = 500;       // Width  of window pixels
+  
 
   private final JLabel      pageTitle  = new JLabel();
   private final JLabel      theAction  = new JLabel();
@@ -52,6 +53,8 @@ public class BackDoorView implements Observer
     }
     Container cp         = rpc.getContentPane();    // Content Pane
     Container rootWindow = (Container) rpc;         // Root Window
+    cp.setBackground(new java.awt.Color(64, 64, 64));
+
     cp.setLayout(null);                             // No layout manager
     rootWindow.setSize( W, H );                     // Size of Window
     rootWindow.setLocation( x, y );
@@ -59,29 +62,43 @@ public class BackDoorView implements Observer
     Font f = new Font("Monospaced",Font.PLAIN,12);  // Font f is
 
     pageTitle.setBounds( 110, 0 , 270, 20 );       
-    pageTitle.setText( "Staff check and manage stock" );                        
+    pageTitle.setText( "<html> <font color='white'>Staff check and manage stock</font></html>" );                        
     cp.add( pageTitle );
     
     theBtQuery.setBounds( 16, 25+60*0, 80, 40 );    // Buy button 
     theBtQuery.addActionListener(                   // Call back code
       e -> cont.doQuery( theInput.getText() ) );
+   
     cp.add( theBtQuery );                           //  Add to canvas
+    theBtQuery.setBackground(new java.awt.Color(96, 96, 96));
+    theBtQuery.setBorder(BorderFactory.createLineBorder(Color.black));
+    theBtQuery.setForeground(Color.black);
+    
 
     theBtRStock.setBounds( 16, 25+60*1, 80, 40 );   // Check Button
     theBtRStock.addActionListener(                  // Call back code
       e -> cont.doRStock( theInput.getText(),
                           theInputNo.getText() ) );
     cp.add( theBtRStock );                          //  Add to canvas
+    theBtRStock.setBackground(new java.awt.Color(96, 96, 96));
+    theBtRStock.setBorder(BorderFactory.createLineBorder(Color.black));
+    theBtRStock.setForeground(Color.black);
+    
 
     theBtClear.setBounds( 16, 25+60*2, 80, 40 );    // Buy button 
     theBtClear.addActionListener(                   // Call back code
       e -> cont.doClear() );
     cp.add( theBtClear );                           //  Add to canvas
+    theBtClear.setBackground(new java.awt.Color(96, 96, 96));
+    theBtClear.setBorder(BorderFactory.createLineBorder(Color.black));
+    theBtClear.setForeground(Color.black);
+    
 
  
     theAction.setBounds( 110, 25 , 270, 20 );       // Message area
     theAction.setText( "" );                        // Blank
     cp.add( theAction );                            //  Add to canvas
+    theAction.setForeground(Color.white);
 
     theInput.setBounds( 110, 50, 120, 40 );         // Input Area
     theInput.setText("");                           // Blank

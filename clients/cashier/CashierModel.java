@@ -194,5 +194,14 @@ public class CashierModel extends Observable
   {
     return new Basket();
   }
-}
+public void doDiscount() {
+	String theAction = "";
+	theAction = "Discount successfully applied!";
+              
+    setChanged(); notifyObservers(theAction);
+}}
+
+	   
+	   
+
   
